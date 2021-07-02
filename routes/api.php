@@ -24,15 +24,13 @@ Route::post('/register', 'UserController@register');
 Route::get('/logout', 'UserController@logout');
 Route::post('/login', 'UserController@login');
 
-//Route::middleware('auth:sanctum')->group(function () {
-    
-    Route::get('/empresas', 'SystemUnitController@show');
-    Route::post('/empresas/add', 'SystemUnitController@store');
-    Route::delete('/empresas/delete', 'SystemUnitController@destroy');
-    Route::put('/empresas/update', 'SystemUnitController@update');
-    Route::get('/empresas/update', 'SystemUnitController@edit');
+Route::middleware('auth:sanctum')->group(function () {
 
-//});
+    Route::get('/profiles', 'ProfilesController@index');
+    Route::post('/profiles', 'ProfilesController@store');
+    Route::put('/profiles/{id}', 'ProfilesController@update');
+    Route::delete('/profiles/{id}', 'ProfilesController@destroy');
+});
 
 
 
